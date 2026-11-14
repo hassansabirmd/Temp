@@ -14,40 +14,176 @@ DARK = (0.12, 0.12, 0.12)
 GRAY = (0.35, 0.35, 0.35)
 LINK_BLUE = (0.05, 0.25, 0.55)
 
-# Short titles matching the requested TOC naming style for early entries,
-# plus clearer clinical names for selected vignettes.
-OVERRIDES = {
+# Short, complete clinical titles — never truncated mid-word.
+TITLES = {
     1: "High aldosterone",
     2: "Low aldosterone",
     3: "Lisinopril",
     4: "Valsartan",
     5: "Spironolactone",
     6: "Enalapril",
-    7: "Abdominal bruit + hypertension",
-    8: "Addison disease (hyperpigmentation + eosinophilia)",
-    9: "Primary adrenal insufficiency (ACTH stim)",
-    10: "Exogenous Cushing (RA on steroids)",
+    7: "Renal artery stenosis",
+    8: "Addison disease",
+    9: "Primary adrenal insufficiency",
+    10: "Exogenous Cushing syndrome",
     11: "Waterhouse-Friderichsen syndrome",
     12: "Adrenal Cushing (low ACTH)",
-    13: "Pituitary Cushing / Cushing disease",
-    14: "Ectopic ACTH (small cell / paraneoplastic)",
+    13: "Pituitary Cushing disease",
+    14: "Ectopic ACTH production",
     15: "Adrenal adenoma (Cushing)",
     16: "Sheehan syndrome",
-    17: "Pituitary adenoma + vertebral fracture",
+    17: "Pituitary adenoma + fracture",
     18: "High vasopressin (ADH)",
     19: "Low vasopressin (ADH)",
-    20: "SIADH (smoker + confusion)",
+    20: "SIADH (smoker)",
     21: "Psychogenic polydipsia",
-    22: "Central diabetes insipidus (head trauma)",
-    23: "Lithium / nephrogenic DI (bipolar)",
-    24: "Marathon runner (volume depletion)",
+    22: "Central diabetes insipidus",
+    23: "Nephrogenic DI (lithium)",
+    24: "Marathon runner / dehydration",
     25: "Chronic NSAID use",
     26: "Mannitol infusion",
     27: "Primary vs secondary hyperthyroidism",
     28: "Primary vs secondary hypothyroidism",
+    29: "Graves disease",
+    30: "Hashimoto hypothyroidism",
+    31: "Subacute (de Quervain) thyroiditis",
+    32: "Medullary thyroid carcinoma",
     33: "Injecting T3",
     34: "Injecting T4 (levothyroxine)",
+    35: "Subclinical hypothyroidism",
+    36: "Euthyroid sick syndrome",
+    37: "Pregnancy thyroid changes",
+    38: "TBG deficiency",
+    39: "Postpartum thyroiditis",
+    40: "Lithium thyroid effects",
     41: "Primary hypo- vs hyperparathyroidism",
+    42: "MEN / kidney stone",
+    43: "Post-thyroidectomy hypoparathyroidism",
+    44: "Hypomagnesemia hypocalcemia",
+    45: "MEN1 (ulcers + impotence)",
+    46: "DiGeorge syndrome",
+    47: "CKD secondary hyperparathyroidism",
+    48: "Acute tubular necrosis",
+    49: "Chronic renal failure",
+    50: "Granulomatosis with polyangiitis",
+    51: "Parathyroid adenoma",
+    52: "Calcium-sensing receptor mutation",
+    53: "Familial hypocalciuric hypercalcemia",
+    54: "Cinacalcet",
+    55: "Albright hereditary osteodystrophy (male)",
+    56: "Albright hereditary osteodystrophy (female)",
+    57: "Tertiary hyperparathyroidism",
+    58: "Vitamin D receptor mutation",
+    59: "PTHrP / squamous cell lung cancer",
+    60: "Renal cell carcinoma (PTHrP)",
+    61: "Vitamin D deficiency / rickets",
+    62: "Osteoporosis (elderly woman)",
+    63: "Osteoporosis densitometry",
+    64: "Paget disease of bone",
+    65: "Metastatic breast cancer",
+    66: "Multiple myeloma",
+    67: "Sarcoidosis",
+    68: "Sarcoidosis with fever",
+    69: "Sarcoidosis + erythema nodosum",
+    70: "Parathyroid adenoma (young)",
+    71: "Cystic fibrosis + steatorrhea",
+    72: "Vitamin D deficiency (alcoholic)",
+    73: "Vitamin D deficiency (no sun)",
+    74: "Menopause / perimenopause",
+    75: "Turner syndrome",
+    76: "Female athlete triad / anorexia",
+    77: "Klinefelter syndrome",
+    78: "PCOS (24F)",
+    79: "PCOS (28F)",
+    80: "Anabolic steroid use",
+    81: "Androgen insensitivity syndrome",
+    82: "Precocious puberty",
+    83: "Prolactinoma",
+    84: "Pituitary stalk transection",
+    85: "Down syndrome triscreen (CVS)",
+    86: "Down syndrome triscreen risk",
+    87: "Hyperemesis gravidarum",
+    88: "Laxative abuse",
+    89: "Furosemide abuse",
+    90: "Spironolactone abuse",
+    91: "Hydrochlorothiazide",
+    92: "Expired tetracyclines (Fanconi)",
+    93: "Chronic diuretic abuse",
+    94: "ATN after intraoperative hypotension",
+    95: "Acetazolamide (altitude)",
+    96: "21-hydroxylase deficiency",
+    97: "11-hydroxylase deficiency",
+    98: "17-hydroxylase deficiency",
+    99: "21-hydroxylase (salt-wasting female)",
+    100: "CAH with hypertension",
+    101: "DKA (new onset)",
+    102: "DKA (missed insulin)",
+    103: "DKA after viral illness",
+    104: "Iron overdose",
+    105: "Aspirin overdose (early)",
+    106: "Aspirin overdose (later)",
+    107: "PE after C-section",
+    108: "Acute asthma exacerbation",
+    109: "Asthma with fatigue / CO2 rise",
+    110: "Hyperventilation / panic",
+    111: "COPD exacerbation",
+    112: "Stable COPD",
+    113: "Morphine / hypoventilation",
+    114: "Congestive heart failure",
+    115: "Cystic fibrosis",
+    116: "Scleroderma / PAH",
+    117: "Pulmonary embolism (OCP + smoking)",
+    118: "Acute pancreatitis",
+    119: "Idiopathic pulmonary fibrosis",
+    120: "Normal aging PFTs",
+    121: "Alpha-1 antitrypsin deficiency",
+    122: "Neonatal RDS (surfactant)",
+    123: "COPD physiology",
+    124: "Exercise / no water intake",
+    125: "Left heart failure (orthopnea)",
+    126: "Primary pulmonary hypertension",
+    127: "CHF pleural effusion",
+    128: "Enalapril in diabetes",
+    129: "Cold water immersion",
+    130: "VSD repair",
+    131: "ASD (fixed splitting S2)",
+    132: "VSD (holosystolic murmur)",
+    133: "Standing from supine",
+    134: "Propranolol",
+    135: "Nitrates",
+    136: "Nifedipine",
+    137: "Systolic heart failure",
+    138: "Diastolic heart failure",
+    139: "Anterior STEMI / cardiogenic shock",
+    140: "Anaphylactic shock",
+    141: "Septic shock",
+    142: "Hypovolemic shock",
+    143: "Cardiogenic shock (viral myocarditis)",
+    144: "ITP (post-viral)",
+    145: "Hemophilia A",
+    146: "von Willebrand disease",
+    147: "APL / DIC (t15;17)",
+    148: "Amniotic fluid embolism / DIC",
+    149: "Vitamin K deficiency (neonate)",
+    150: "Uremic platelet dysfunction",
+    151: "HELLP / preeclampsia",
+    152: "Iron deficiency anemia",
+    153: "Anemia of chronic disease (JIA)",
+    154: "Alpha-thalassemia",
+    155: "Restless legs / iron deficiency",
+    156: "Iron deficiency O2 content",
+    157: "Gilbert syndrome",
+    158: "Obstructive jaundice (bile duct)",
+    159: "G6PD deficiency (dapsone)",
+    160: "Fed state enzymes (turkey dinner)",
+    161: "Fed state enzymes (continued)",
+    162: "Type 1 diabetes / insulin lack",
+    163: "Glucokinase vs hexokinase",
+    164: "Oxytocin signaling",
+    165: "Cimetidine signaling",
+    166: "Refeeding syndrome",
+    167: "Bacterial meningitis (CSF)",
+    168: "Cryptococcal meningitis (CSF)",
 }
 
 
@@ -88,88 +224,11 @@ def extract_questions(doc: fitz.Document) -> list[dict]:
     return questions
 
 
-def clean_parens(s: str) -> str:
-    return re.sub(r"\s*\([^)]*\)\s*", " ", s)
-
-
-def make_title(qtext: str) -> str:
-    t = re.sub(r"\s+", " ", qtext).strip()
-
-    m = re.match(r"(?i)Patient has ([^.]+)\.", t)
-    if m:
-        return m.group(1).strip().capitalize()
-
-    m = re.match(
-        r"(?i)(?:If a patient is given|Patient is given)\s+([A-Za-z0-9\-]+)", t
-    )
-    if m:
-        return m.group(1).strip().capitalize()
-
-    m = re.match(r"(?i)Patient is injecting\s+(.+?)(?:\.|$)", t)
-    if m:
-        return f"Injecting {clean_parens(m.group(1)).strip()}"
-
-    m = re.match(r"(?i)Patient with\s+(.+?)(?:\.|$)", t)
-    if m:
-        return m.group(1).strip().rstrip(".").capitalize()
-
-    m = re.match(r"(?i)In (primary vs secondary \w+)", t)
-    if m:
-        return m.group(1).strip().capitalize()
-
-    m = re.match(r"(?i)A researcher is comparing\s+(.+?)(?:\.|,| with |$)", t)
-    if m:
-        return f"Comparing {m.group(1).strip()}"
-
-    m = re.search(
-        r"(?i)if\s+(vasopressin|anti-diuretic hormone|ADH)[^(]*\s+is\s+"
-        r"(increased|decreased|high|low)",
-        t,
-    )
-    if m:
-        return f"Vasopressin {m.group(2).lower()}"
-
-    m = re.search(
-        r"(?i)if\s+(.+?)\s+is\s+(increased|decreased|high|low|administered|given)\b",
-        t,
-    )
-    if m and not re.match(r"(?i)\d+[MF]\b", t):
-        subj = re.sub(r"\s+", " ", clean_parens(m.group(1))).strip()
-        if len(subj) < 40:
-            return f"{subj} {m.group(2)}".strip().capitalize()
-
-    core = re.split(r"(?i)\s*[Ww]hat are the (?:most likely )?arrows", t)[0]
-    core = re.split(r"(?i)\s*[Ww]hat will happen", core)[0]
-    core = re.split(r"(?i)\s*[Ww]hat change will", core)[0]
-    core = re.split(r"(?i)\s*[Aa]s a result", core)[0]
-    core = re.split(r"(?i);\s*if\s+", core)[0]
-    core = re.split(r"(?i)\.\s*[Ww]hat\b", core)[0]
-    core = re.split(r"(?i)\.\s*[Cc]ompared\b", core)[0]
-    core = core.strip(" ;,.")
-
-    if " + " in core:
-        parts = [p.strip().rstrip(".") for p in core.split(" + ")]
-        selected: list[str] = []
-        for part in parts:
-            if re.match(r"(?i)^(what|which|if)\b", part):
-                break
-            if len(part) > 55:
-                part = part[:52].rstrip() + "…"
-            selected.append(part)
-            if len(" + ".join(selected)) > 68 or len(selected) >= 3:
-                break
-        title = " + ".join(selected)
-        return title[:69].rstrip() + "…" if len(title) > 72 else title
-
-    return core[:69].rstrip() + "…" if len(core) > 72 else (core or t[:70])
-
-
 def build_toc_entries(questions: list[dict]) -> list[dict]:
-    entries = []
-    for q in questions:
-        title = OVERRIDES.get(q["qnum"]) or make_title(q["qtext"])
-        entries.append({**q, "title": title.strip().rstrip(".")})
-    return entries
+    missing = [q["qnum"] for q in questions if q["qnum"] not in TITLES]
+    if missing:
+        raise RuntimeError(f"Missing TOC titles for questions: {missing}")
+    return [{**q, "title": TITLES[q["qnum"]]} for q in questions]
 
 
 def create_toc_pages(
@@ -226,16 +285,14 @@ def create_toc_pages(
             title = entry["title"]
             page_label = f"Page {entry['orig_page']}"
             max_title_width = right_col_x - margin_x - 70
-            display = title
-            while (
-                fitz.get_text_length(display, fontname="helv", fontsize=font_size)
-                > max_title_width
-                and len(display) > 10
-            ):
-                display = display[:-2] + "…"
+            title_w = fitz.get_text_length(title, fontname="helv", fontsize=font_size)
+            if title_w > max_title_width:
+                raise RuntimeError(
+                    f"Title too long for one line (Q{entry['qnum']}): {title!r}"
+                )
 
             page.insert_text(
-                (margin_x, y), display, fontsize=font_size, fontname="helv", color=LINK_BLUE
+                (margin_x, y), title, fontsize=font_size, fontname="helv", color=LINK_BLUE
             )
             pl_w = fitz.get_text_length(page_label, fontname="helv", fontsize=font_size)
             page.insert_text(
@@ -246,7 +303,6 @@ def create_toc_pages(
                 color=DARK,
             )
 
-            title_w = fitz.get_text_length(display, fontname="helv", fontsize=font_size)
             dots_start = margin_x + title_w + 6
             dots_end = right_col_x - pl_w - 6
             if dots_end > dots_start + 10:
